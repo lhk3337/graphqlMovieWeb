@@ -8,6 +8,6 @@ export const people = [
 ];
 
 export const getById = (id) => {
-  const filterPeople = people.filter((person) => id === person.id);
+  const filterPeople = people.filter((person) => String(id) === person.id);
   return filterPeople[0];
 };
