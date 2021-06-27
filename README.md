@@ -20,7 +20,7 @@
 
   yarn add graphql-yoga <br/>
   yarn add @babel/cli @babel/core @babel/node @babel/preset-env <br/>
-  babel설치 후 .babelrc파일 생성 후 아래 내용 복사 붙여 넣기
+  위의 두 항목 설치 후 .babelrc파일 생성 후 아래 내용 복사 붙여 넣기
 
   ```json
   {
