@@ -28,6 +28,10 @@
   }
   ```
 
+  yarn add node-fetch : nodejs환경에서 fetch를 사용할 수 있게 해주는 라이브러리(REST API를 불러오게 하기 위해 사용)
+
 - ### client
   npx create-react-app client
   yarn add styled-components react-router-dom @apollo/client graphql
+
+index.js, db.js, resolver.js, schema.graphql로만 API를 만들 수 있음
