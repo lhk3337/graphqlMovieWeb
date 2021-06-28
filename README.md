@@ -29,6 +29,7 @@
   ```
 
   yarn add node-fetch : nodejs환경에서 fetch를 사용할 수 있게 해주는 라이브러리(REST API를 불러오게 하기 위해 사용)
+  yarn add axios : fetch에서 axios로 변경
 
 - ### client
   npx create-react-app client
