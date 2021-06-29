@@ -1,5 +1,7 @@
 import React from "react";
 import { useQuery, gql } from "@apollo/client";
+import { Container, Header, Title, Subtitle, Loading } from "./HomeStyle";
+import Movie from "../components/Movie";
 
 const GET_MOVIES = gql`
   {
@@ -13,16 +15,18 @@ const GET_MOVIES = gql`
 
 const Home = () => {
   const { loading, error, data } = useQuery(GET_MOVIES);
-  console.log(data);
-  if (loading) {
-    return "loading...";
-  }
-  if (error) {
-    return "error";
-  }
-  if (data && data.movies) {
-    return data.movies.map((m) => <h1>{m.title}</h1>);
-  }
+  return (
+    <Container>
+      <Header>
+        <Title>Apollo 2021</Title>
+        <Subtitle>I Love GraphQL</Subtitle>
+      </Header>
+      {loading && <Loading>Loading...</Loading>}
+      {!loading &&
+        data.movies &&
+        data.movies.map((m) => <Movie key={m.id} id={m.id} />)}
+    </Container>
+  );
 };
 
 export default Home;
