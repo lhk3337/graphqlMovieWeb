@@ -8,7 +8,9 @@ import {
   Description,
   Poster,
   Column,
+  Suggestion,
 } from "../style/DetailStyle";
+import { Movies } from "../style/HomeStyle";
 
 const GET_MOVIE = gql`
   query getMovie($id: Int!) {
@@ -31,20 +33,28 @@ const Detail = () => {
     variables: { id: parseInt(id) },
   });
   return (
-    <Container>
-      <Column>
-        <Title>{loading ? "loading" : data.movie.title}</Title>
-        {data?.movie && (
-          <>
-            <Subtitle>
-              {data.movie.language} · {data.movie.rating}
-            </Subtitle>
-            <Description>{data.movie.description_intro}</Description>
-          </>
-        )}
-      </Column>
-      <Poster bg={data?.movie?.medium_cover_image}></Poster>
-    </Container>
+    <>
+      <Container>
+        <Column>
+          <Title>{loading ? "loading" : data.movie.title}</Title>
+          {data?.movie && (
+            <>
+              <Subtitle>
+                {data.movie.language} · {data.movie.rating}
+              </Subtitle>
+              <Description>{data.movie.description_intro}</Description>
+            </>
+          )}
+          <Subtitle>Recommand</Subtitle>
+          <Suggestion>
+            {data?.suggestions?.map((m) => (
+              <Poster bg={m.medium_cover_image}></Poster>
+            ))}
+          </Suggestion>
+        </Column>
+        <Poster bg={data?.movie?.medium_cover_image}></Poster>
+      </Container>
+    </>
   );
 };
 
