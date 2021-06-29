@@ -30,3 +30,11 @@ export const Loading = styled.div`
   font-weight: 500;
   margin-top: 10px;
 `;
+export const Movies = styled.div`
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 25px;
+  width: 60%;
+  position: relative;
+  top: -50px;
+`;

@@ -1,6 +1,13 @@
 import React from "react";
 import { useQuery, gql } from "@apollo/client";
-import { Container, Header, Title, Subtitle, Loading } from "./HomeStyle";
+import {
+  Container,
+  Header,
+  Title,
+  Subtitle,
+  Loading,
+  Movies,
+} from "../style/HomeStyle";
 import Movie from "../components/Movie";
 
 const GET_MOVIES = gql`
@@ -22,9 +29,13 @@ const Home = () => {
         <Subtitle>I Love GraphQL</Subtitle>
       </Header>
       {loading && <Loading>Loading...</Loading>}
-      {!loading &&
-        data.movies &&
-        data.movies.map((m) => <Movie key={m.id} id={m.id} />)}
+      {data?.movies && (
+        <Movies>
+          {data.movies.map((m) => (
+            <Movie key={m.id} id={m.id} bg={m.medium_cover_image} />
+          ))}
+        </Movies>
+      )}
     </Container>
   );
 };
