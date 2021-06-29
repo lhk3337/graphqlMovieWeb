@@ -19,6 +19,10 @@ const GET_MOVIE = gql`
       language
       rating
     }
+    suggestions(id: $id) {
+      id
+      medium_cover_image
+    }
   }
 `;
 const Detail = () => {
@@ -26,7 +30,6 @@ const Detail = () => {
   const { loading, data } = useQuery(GET_MOVIE, {
     variables: { id: parseInt(id) },
   });
-  console.log(data?.movie?.medium_cover_image);
   return (
     <Container>
       <Column>
@@ -40,7 +43,7 @@ const Detail = () => {
           </>
         )}
       </Column>
-      <Poster bg={data?.movie.medium_cover_image}></Poster>
+      <Poster bg={data?.movie?.medium_cover_image}></Poster>
     </Container>
   );
 };
