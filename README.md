@@ -65,7 +65,32 @@
 │   ├── package.json          - npm 설정 파일
 │   ├── .babelrc              - babel 설정 파일
 │   └── node_modules/         - npm 라이브러리 파일 폴더
+│
 └── client/
+    │ 
+    ├── node_modules/         - npm 라이브러리 파일 폴더
+    │  
+    ├── public/               - public 폴더
+    │  
+    ├── src /  
+    │   ├── components/        - Component 폴더
+    │   │   ├── App.js         - children으로 Home.js와 Detail.js
+    │   │   └── Movie.js       - Movie Component
+    │   │
+    │   ├── routes/            - App.js의 react-router에 해당하는 component 폴더
+    │   │   ├── Detail.js      - Detail Component
+    │   │   └── Home.js        - children으로 Movie.js
+    │   │
+    │   ├── style/             - CSS style 폴더
+    │   │   ├── DetailStyle.js - Detail style
+    │   │   ├── HomeStyle.js   - HomeStyle style
+    │   │   └── MovieStyle.js  - MovieStyle style
+    │   │
+    │   ├── apollo.js          - react apollo
+    │   └── index.js           - react index파일
+    │
+    └── package.json       - npm 설정 파일
+
 ```
 
 - index.js, db.js, resolver.js, schema.graphql로만 API를 만들 수 있음
